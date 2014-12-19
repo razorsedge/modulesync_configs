@@ -1,12 +1,14 @@
 ---
-- puppetlabs-apache
-- puppetlabs-apt
-- puppetlabs-concat
-- puppetlabs-firewall
-- puppetlabs-inifile
-- puppetlabs-java_ks
-- puppetlabs-mysql
-- puppetlabs-ntp
-- puppetlabs-postgresql
-- puppetlabs-stdlib
-- puppetlabs-vcsrepo
+- puppet-certmaster
+- puppet-cloudera
+- puppet-func
+- puppet-hp_mcp
+- puppet-hp_spp
+- puppet-lsb
+- puppet-network
+- puppet-openlldp
+- puppet-razorsedge
+- puppet-snmp
+- puppet-tor
+- puppet-tripwire
+- puppet-vmwaretools

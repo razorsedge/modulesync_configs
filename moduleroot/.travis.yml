@@ -1,5 +1,9 @@
 ---
 language: ruby
+branches:
+  only:
+    - master
+    - develop
 bundler_args: --without system_tests
 script: <%= @configs['script'] %>
 matrix:
@@ -16,4 +20,5 @@ matrix:
 <%   end -%>
 <% end -%>
 notifications:
-  email: false
+  email:
+    - github@razorsedge.org
