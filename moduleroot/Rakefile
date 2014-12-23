@@ -6,9 +6,9 @@ PuppetLint.configuration.fail_on_warnings
 <% checks.each do |check| -%>
 PuppetLint.configuration.send('<%= check %>')
 <% end -%>
-PuppetLint.configuration.ignore_paths = ["spec/**/*.pp", "pkg/**/*.pp"]
+PuppetLint.configuration.ignore_paths = ["spec/**/*.pp", "pkg/**/*.pp", "vender/**/*.pp"]
 
-PuppetSyntax.exclude_paths = ["pkg/**/*"]
+PuppetSyntax.exclude_paths = ["spec/**/*", "pkg/**/*", "vender/**/*"]
 PuppetSyntax.hieradata_paths = ["**/data/**/*.yaml", "hieradata/**/*.yaml", "hiera*.yaml"]
 
 desc "Check puppet metadata.json with metadata-json-lint."

@@ -1,5 +1,10 @@
 ---
 language: ruby
+cache:
+  directories:
+  - vendor/bundle
+  - spec/fixtures/modules
+sudo: false
 branches:
   only:
     - master
@@ -17,6 +22,13 @@ matrix:
 <%   @configs['extras'].each do |extra| -%>
   - rvm: <%= extra['rvm'] %>
     env: <%= extra['env'] %>
+<%   end -%>
+<% end -%>
+<% if @configs['allow_failures'] -%>
+  allow_failures:
+<%   @configs['allow_failures'].each do |failure| -%>
+  - rvm: <%= failure['rvm'] %>
+    env: <%= failure['env'] %>
 <%   end -%>
 <% end -%>
 notifications:
