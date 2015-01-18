@@ -12,14 +12,16 @@ group <%= group %> do
 <%              'gem'     => gem['gem'], -%>
 <%              'version' => gem['version'], -%>
 <%              'git'     => gem['git'], -%>
+<%              'ref'     => gem['ref'], -%>
 <%              'branch'  => gem['branch'], -%>
+<%              'tag'     => gem['tag'], -%>
 <%              'length'  => gem['gem'].length + (("', '".length if gem['version']) || 0) + gem['version'].to_s.length -%>
 <%            } -%>
 <%          end.map do |gem| -%>
 <%            gem['length'] -%>
 <%          end.max -%>
 <% gems.each do |gem| -%>
-  gem '<%= gem['gem'] %>'<%= ", '#{gem['version']}'" if gem['version'] %>, <%= ' ' * (maxlen - gem['length']) %> :require => false<%= ", :git => '#{gem['git']}'" if gem['git'] %><%= ", :branch => '#{gem['branch']}'" if gem['branch'] %>
+  gem '<%= gem['gem'] %>'<%= ", '#{gem['version']}'" if gem['version'] %>,<%= ' ' * (maxlen - gem['length']) %> :require => false<%= ", :git => '#{gem['git']}'" if gem['git'] %><%= ", :ref => '#{gem['ref']}'" if gem['ref'] %><%= ", :branch => '#{gem['branch']}'" if gem['branch'] %><%= ", :tag => '#{gem['tag']}'" if gem['tag'] %>
 <% end -%>
 end
 
