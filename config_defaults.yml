@@ -43,7 +43,6 @@ Rakefile:
   - 'disable_single_quote_string_with_variables'
 .puppet-lint.rc:
   default_disabled_lint_checks:
-  - '--relative'
   - '--no-80chars-check'
   - '--no-class_inherits_from_params_class-check'
   - '--no-documentation-check'
