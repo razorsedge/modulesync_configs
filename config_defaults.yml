@@ -25,6 +25,7 @@ Gemfile:
         version: '~> 2.0'
       - gem: puppetlabs_spec_helper
       - gem: puppet-lint
+        version: '>= 1.1.0'
       - gem: simplecov
       - gem: puppet_facts
       - gem: json
@@ -33,15 +34,17 @@ Gemfile:
 #    ':system_tests':
 #      - gem: beaker-rspec
 #      - gem: serverspec
-Rakefile:
-  default_disabled_lint_checks:
-  - 'relative'
-  - 'disable_80chars'
-  - 'disable_class_inherits_from_params_class'
-  - 'disable_documentation'
-  - 'disable_single_quote_string_with_variables'
+#Rakefile:
+#  default_disabled_lint_checks:
+#  - 'relative'
+#  - 'disable_80chars'
+#  - 'disable_class_inherits_from_params_class'
+#  - 'disable_documentation'
+#  - 'disable_single_quote_string_with_variables'
 .puppet-lint.rc:
   default_disabled_lint_checks:
+  - '--fail-on-warnings'
+  - '--relative'
   - '--no-80chars-check'
   - '--no-class_inherits_from_params_class-check'
   - '--no-documentation-check'

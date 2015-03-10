@@ -1,5 +1,3 @@
---fail-on-warnings
---relative
 <% checks = @configs['default_disabled_lint_checks'] + ( @configs['extra_disabled_lint_checks'] || [] ) -%>
 <% checks.each do |check| -%>
 <%= check %>
