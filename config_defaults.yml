@@ -14,9 +14,17 @@
     env: PUPPET_GEM_VERSION="~> 3.0"
   - rvm: 2.0.0
     env: PUPPET_GEM_VERSION="~> 3.0" FUTURE_PARSER="yes"
+  - rvm: 2.1.0
+    env: PUPPET_GEM_VERSION="~> 3.0" FUTURE_PARSER="yes"
+  - rvm: 2.1.5
+    env: PUPPET_GEM_VERSION="4.0.0.rc1"
   allow_failures:
   - rvm: 2.0.0
     env: PUPPET_GEM_VERSION="~> 3.0" FUTURE_PARSER="yes"
+  - rvm: 2.1.0
+    env: PUPPET_GEM_VERSION="~> 3.0" FUTURE_PARSER="yes"
+  - rvm: 2.1.5
+    env: PUPPET_GEM_VERSION="4.0.0.rc1"
 Gemfile:
   required:
     ':development, :unit_tests':
@@ -33,6 +41,12 @@ Gemfile:
       - gem: json
       - gem: metadata-json-lint
         version: '>= 0.0.4'
+      - gem: puppet-lint-unquoted_string-check
+      - gem: puppet-lint-empty_string-check
+      - gem: puppet-lint-leading_zero-check
+      - gem: puppet-lint-variable_contains_upcase
+#      - gem: puppet-lint-absolute_classname-check
+#      - gem: puppet-lint-undef_in_function-check
 #    ':system_tests':
 #      - gem: beaker-rspec
 #      - gem: serverspec
