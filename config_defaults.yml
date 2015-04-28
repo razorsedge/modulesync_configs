@@ -12,18 +12,9 @@
     env: PUPPET_GEM_VERSION="~> 3.0"
   - rvm: 2.0.0
     env: PUPPET_GEM_VERSION="~> 3.0"
-  - rvm: 2.0.0
-    env: PUPPET_GEM_VERSION="~> 3.0" FUTURE_PARSER="yes"
   - rvm: 2.1.0
-    env: PUPPET_GEM_VERSION="~> 3.0" FUTURE_PARSER="yes"
-  - rvm: 2.1.5
-    env: PUPPET_GEM_VERSION="~> 4.0"
-  allow_failures:
-  - rvm: 2.0.0
-    env: PUPPET_GEM_VERSION="~> 3.0" FUTURE_PARSER="yes"
+    env: PUPPET_GEM_VERSION="~> 3.0"
   - rvm: 2.1.0
-    env: PUPPET_GEM_VERSION="~> 3.0" FUTURE_PARSER="yes"
-  - rvm: 2.1.5
     env: PUPPET_GEM_VERSION="~> 4.0"
 Gemfile:
   required:
@@ -32,7 +23,7 @@ Gemfile:
       - gem: rspec
         version: '~> 2.0'
       - gem: rspec-puppet
-        version: '~> 2.0'
+        version: '>= 2.1.0'
       - gem: puppetlabs_spec_helper
       - gem: puppet-lint
         version: '>= 1.1.0'
