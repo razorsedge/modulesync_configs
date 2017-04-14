@@ -15,27 +15,19 @@ group <%= group %> do
 <%              'ref'     => gem['ref'], -%>
 <%              'branch'  => gem['branch'], -%>
 <%              'tag'     => gem['tag'], -%>
+<%              'opts'    => gem['opts'], -%>
 <%              'length'  => gem['gem'].length + (("', '".length if gem['version']) || 0) + gem['version'].to_s.length -%>
 <%            } -%>
 <%          end.map do |gem| -%>
 <%            gem['length'] -%>
 <%          end.max -%>
 <% gems.each do |gem| -%>
-  gem '<%= gem['gem'] %>'<%= ", '#{gem['version']}'" if gem['version'] %>,<%= ' ' * (maxlen - gem['length']) %> :require => false<%= ", :git => '#{gem['git']}'" if gem['git'] %><%= ", :ref => '#{gem['ref']}'" if gem['ref'] %><%= ", :branch => '#{gem['branch']}'" if gem['branch'] %><%= ", :tag => '#{gem['tag']}'" if gem['tag'] %>
+  gem '<%= gem['gem'] %>'<%= ", '#{gem['version']}'" if gem['version'] %>,<%= ' ' * (maxlen - gem['length']) %> :require => false<%= ", :git => '#{gem['git']}'" if gem['git'] %><%= ", :ref => '#{gem['ref']}'" if gem['ref'] %><%= ", :branch => '#{gem['branch']}'" if gem['branch'] %><%= ", :tag => '#{gem['tag']}'" if gem['tag'] %><%= " #{gem['opts']}" if gem['opts'] %>
 <% end -%>
 end
 
 <% end -%>
-if facterversion = ENV['FACTER_GEM_VERSION']
-  gem 'facter', facterversion, :require => false
-else
-  gem 'facter', :require => false
-end
-
-if puppetversion = ENV['PUPPET_GEM_VERSION']
-  gem 'puppet', puppetversion, :require => false
-else
-  gem 'puppet', :require => false
-end
+gem 'puppet', ENV['PUPPET_GEM_VERSION'], :require => false
+gem 'facter', ENV['FACTER_GEM_VERSION'], :require => false
 
 # vim:ft=ruby
