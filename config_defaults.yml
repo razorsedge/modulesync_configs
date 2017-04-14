@@ -67,13 +67,6 @@ Gemfile:
 #    ':system_tests':
 #      - gem: beaker-rspec
 #      - gem: serverspec
-Rakefile:
-  default_disabled_lint_checks:
-  - 'relative'
-  - 'disable_140chars'
-  - 'disable_class_inherits_from_params_class'
-  - 'disable_documentation'
-  - 'disable_single_quote_string_with_variables'
 .puppet-lint.rc:
   default_disabled_lint_checks:
   - '--fail-on-warnings'
