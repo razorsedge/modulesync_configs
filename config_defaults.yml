@@ -8,27 +8,56 @@
     env: PUPPET_GEM_VERSION="~> 3.0"
   - rvm: 2.0.0
     env: PUPPET_GEM_VERSION="~> 3.0"
-  - rvm: 2.1.0
-    env: PUPPET_GEM_VERSION="~> 3.0"
-  - rvm: 2.1.0
+  - rvm: 2.0.0
+    env: PUPPET_GEM_VERSION="~> 3.0" FUTURE_PARSER="yes"
+  - rvm: 2.1.9
+    env: PUPPET_GEM_VERSION="~> 4.0" STRICT_VARIABLES="no"
+  - rvm: 2.1.9
+    env: PUPPET_GEM_VERSION="~> 4.0"
+  - rvm: 2.3
+    env: PUPPET_GEM_VERSION="~> 4.0" STRICT_VARIABLES="no"
+  - rvm: 2.3
+    env: PUPPET_GEM_VERSION="~> 4.0"
+  allow_failures:
+  - rvm: 2.1.9
+    env: PUPPET_GEM_VERSION="~> 4.0"
+  - rvm: 2.3
+    env: PUPPET_GEM_VERSION="~> 4.0" STRICT_VARIABLES="no"
+  - rvm: 2.3
     env: PUPPET_GEM_VERSION="~> 4.0"
 Gemfile:
   required:
     ':development, :unit_tests':
       - gem: rake
-        version: '< 11.0'
+        version: '10.5.0'
       - gem: rspec
         version: '~> 2.0'
       - gem: rspec-puppet
         version: '>= 2.1.0'
       - gem: puppetlabs_spec_helper
+        version: '~> 1.2'
       - gem: puppet-lint
-        version: '>= 1.1.0'
-      - gem: simplecov
-      - gem: puppet_facts
+        version: '~> 2.0'
       - gem: json
+        version: '~> 1.8'
+        opts: 'if RUBY_VERSION =~ /^1\./'
+      - gem: json
+        opts: 'if RUBY_VERSION =~ /^2\./'
+      - gem: json_pure
+        version: '~> 1.8'
+        opts: 'if RUBY_VERSION =~ /^1\.8/'
+      - gem: json_pure
+        version: '<= 2.0.1'
+        opts: 'if RUBY_VERSION =~ /^1\.9/'
+      - gem: json_pure
+        opts: 'if RUBY_VERSION =~ /^2\./'
       - gem: metadata-json-lint
         version: '>= 0.0.4'
+      - gem: semantic_puppet
+        version: '0.1.3'
+        opts: 'if RUBY_VERSION =~ /^1\./'
+      - gem: semantic_puppet
+        opts: 'if RUBY_VERSION =~ /^2\./'
       - gem: puppet-lint-unquoted_string-check
       - gem: puppet-lint-empty_string-check
       - gem: puppet-lint-leading_zero-check
@@ -38,18 +67,18 @@ Gemfile:
 #    ':system_tests':
 #      - gem: beaker-rspec
 #      - gem: serverspec
-#Rakefile:
-#  default_disabled_lint_checks:
-#  - 'relative'
-#  - 'disable_80chars'
-#  - 'disable_class_inherits_from_params_class'
-#  - 'disable_documentation'
-#  - 'disable_single_quote_string_with_variables'
+Rakefile:
+  default_disabled_lint_checks:
+  - 'relative'
+  - 'disable_140chars'
+  - 'disable_class_inherits_from_params_class'
+  - 'disable_documentation'
+  - 'disable_single_quote_string_with_variables'
 .puppet-lint.rc:
   default_disabled_lint_checks:
   - '--fail-on-warnings'
   - '--relative'
-  - '--no-80chars-check'
+  - '--no-140chars-check'
   - '--no-class_inherits_from_params_class-check'
   - '--no-documentation-check'
   - '--no-single_quote_string_with_variables-check'
