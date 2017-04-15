@@ -79,3 +79,4 @@ Gemfile:
   paths:
     - '*.swp'
     - '.vendor/'
+    - '.vendor'
