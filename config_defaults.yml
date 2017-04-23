@@ -61,7 +61,7 @@ Gemfile:
       - gem: puppet-lint-unquoted_string-check
       - gem: puppet-lint-empty_string-check
       - gem: puppet-lint-leading_zero-check
-      - gem: puppet-lint-variable_contains_upcase
+#      - gem: puppet-lint-variable_contains_upcase
 #      - gem: puppet-lint-absolute_classname-check
 #      - gem: puppet-lint-undef_in_function-check
 #    ':system_tests':
